@@ -1,0 +1,436 @@
+ package com.example.mujtabawaheed.calculator;
+
+import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.*;
+
+public class MainActivity extends AppCompatActivity {
+   @Override
+   protected void onCreate(Bundle savedInstanceState) {
+       super.onCreate(savedInstanceState);
+       setContentView(R.layout.activity_main);
+   }
+   String [] in = new String [50];
+   int pos = 0;
+   boolean add = true, sub = true, div = true, mul = true, sin = true, cos = true, tan = true, log = true, exp = true, sqrt;
+   public void clear (View view) {
+       pos --;
+       in [pos] = "";
+   }
+   public void allclear (View view) {
+       for (int i = 0; i < pos; i ++) {
+           in [i] = null;
+       }
+       TextView et = findViewById (R.id.editText);
+       String curr = "";
+       et.setText (curr);
+   }
+   //for #1
+   public void one (View view) {
+       TextView et = findViewById (R.id.editText);
+       String curr = et.getText ().toString ();
+       if ((pos > 0) && (Integer.parseInt (in [pos -1]) >= 0) && (Integer.parseInt (in [pos -1]) <= 9) && (in [pos -1] == ".") ) {
+           in [pos - 1] += "1";
+       }
+       else {
+           in [pos] = "1";
+           pos ++;
+       }
+       et.setText (curr + "1");
+   }
+   //for #2
+   public void two (View view) {
+       TextView et = findViewById (R.id.editText);
+       String curr = et.getText ().toString ();
+       if ((pos > 0) && (Integer.parseInt (in [pos -1]) >= 0) && (Integer.parseInt (in [pos -1]) <= 9) && (in [pos -1] == ".") ) {
+           in [pos - 1] += "2";
+       }
+       else {
+           in [pos] = "2";
+           pos ++;
+       }
+       et.setText (curr + "2");
+   }
+   //for #3
+   public void three (View view) {
+       TextView et = findViewById (R.id.editText);
+       String curr = et.getText ().toString ();
+       if ((pos > 0) && (Integer.parseInt (in [pos -1]) >= 0) && (Integer.parseInt (in [pos -1]) <= 9) && (in [pos -1] == ".") ) {
+           in [pos - 1] += "3";
+       }
+       else {
+           in [pos] = "3";
+           pos ++;
+       }
+       et.setText (curr + "3");
+   }
+   //for #4
+   public void four (View view) {
+       TextView et = findViewById (R.id.editText);
+       String curr = et.getText ().toString ();
+       if ((pos > 0) && (Integer.parseInt (in [pos -1]) >= 0) && (Integer.parseInt (in [pos -1]) <= 9) && (in [pos -1] == ".") ) {
+           in [pos - 1] += "4";
+       }
+       else {
+           in [pos] = "4";
+           pos ++;
+       }
+       et.setText (curr + "4");
+   }
+   //for #5
+   public void five (View view) {
+       TextView et = findViewById (R.id.editText);
+       String curr = et.getText ().toString ();
+       if ((pos > 0) && (Integer.parseInt (in [pos -1]) >= 0) && (Integer.parseInt (in [pos -1]) <= 9) && (in [pos -1] == ".") ) {
+           in [pos - 1] += "5";
+       }
+       else {
+           in [pos] = "5";
+           pos ++;
+       }
+       et.setText (curr + "5");
+   }
+   //for #6
+   public void six (View view) {
+       TextView et = findViewById (R.id.editText);
+       String curr = et.getText ().toString ();
+       if ((pos > 0) && (Integer.parseInt (in [pos -1]) >= 0) && (Integer.parseInt (in [pos -1]) <= 9) && (in [pos -1] == ".") ) {
+           in [pos - 1] += "6";
+       }
+       else {
+           in [pos] = "6";
+           pos ++;
+       }
+       et.setText (curr + "6");
+   }
+   //for #7
+   public void seven (View view) {
+       TextView et = findViewById (R.id.editText);
+       String curr = et.getText ().toString ();
+       if ((pos > 0) && (Integer.parseInt (in [pos -1]) >= 0) && (Integer.parseInt (in [pos -1]) <= 9) && (in [pos -1] == ".") ) {
+           in [pos - 1] += "7";
+       }
+       else {
+           in [pos] = "7";
+           pos ++;
+       }
+       et.setText (curr + "7");
+   }
+   //for #8
+   public void eight (View view) {
+       TextView et = findViewById (R.id.editText);
+       String curr = et.getText ().toString ();
+       if ((pos > 0) && (Integer.parseInt (in [pos -1]) >= 0) && (Integer.parseInt (in [pos -1]) <= 9) && (in [pos -1] == ".") ) {
+           in [pos - 1] += "8";
+       }
+       else {
+           in [pos] = "8";
+           pos ++;
+       }
+       et.setText (curr + "8");
+   }
+   //for #9
+   public void nine (View view) {
+       TextView et = findViewById (R.id.editText);
+       String curr = et.getText ().toString ();
+       if ((pos > 0) && (Integer.parseInt (in [pos -1]) >= 0) && (Integer.parseInt (in [pos -1]) <= 9) && (in [pos -1] == ".") ) {
+           in [pos - 1] += "9";
+       }
+       else {
+           in [pos] = "9";
+           pos ++;
+       }
+       et.setText (curr + "9");
+   }
+   //for #0
+   public void zero (View view) {
+       TextView et = findViewById (R.id.editText);
+       String curr = et.getText ().toString ();
+       if ((pos > 0) && (Integer.parseInt (in [pos -1]) >= 0) && (Integer.parseInt (in [pos -1]) <= 9) && (in [pos -1] == ".") ) {
+           in [pos - 1] += "0";
+       }
+       else {
+           in [pos] = "0";
+           pos ++;
+       }
+       et.setText (curr + "0");
+   }
+   //for addition
+   public void plus (View view) {
+       in [pos] = "+";
+       TextView et = findViewById (R.id.editText);
+       String curr = et.getText ().toString ();
+       et.setText (curr + in [pos]);
+       pos ++;
+   }
+   //for subtraction
+   public void minus (View view) {
+       in [pos] = "-";
+       TextView et = findViewById (R.id.editText);
+       String curr = et.getText ().toString ();
+       et.setText (curr + in [pos]);
+       pos ++;
+   }
+   //for multiply
+   public void multiply (View view) {
+       in [pos] = "*";
+       TextView et = findViewById (R.id.editText);
+       String curr = et.getText ().toString ();
+       et.setText (curr + in [pos]);
+       pos ++;
+   }
+   //for divide
+   public void divide (View view) {
+       in [pos] = "/";
+       TextView et = findViewById (R.id.editText);
+       String curr = et.getText ().toString ();
+       et.setText (curr + in [pos]);
+       pos ++;
+   }
+   //for decimal
+   public void decimal (View view) {
+       TextView et = findViewById (R.id.editText);
+       String curr = et.getText ().toString ();
+       if ((pos > 0) && (Integer.parseInt (in [pos -1]) >= 0) && (Integer.parseInt (in [pos -1]) <= 9) ) {
+           in [pos - 1] += ".";
+       }
+       else {
+           in [pos] = ".";
+           pos ++;
+       }
+       et.setText (curr + ".");
+   }
+   //for pi
+   public void pi (View view) {
+       in [pos] = Double.toString (Math.PI);
+       TextView et = findViewById (R.id.editText);
+       String curr = et.getText ().toString ();
+       et.setText (curr + in [pos]);
+       pos ++;
+   }
+   //for percent
+   public void percent (View view) {
+       in [pos] = "%";
+       TextView et = findViewById (R.id.editText);
+       String curr = et.getText ().toString ();
+       et.setText (curr + in [pos]);
+       pos ++;
+   }
+   //for square root
+   public void sqrt (View view) {
+       in [pos] = "sqrt";
+       TextView et = findViewById (R.id.editText);
+       String curr = et.getText ().toString ();
+       et.setText (curr + in [pos]);
+       pos ++;
+   }
+   //for square
+   public void exp (View view) {
+       in [pos] = "exp";
+       TextView et = findViewById (R.id.editText);
+       String curr = et.getText ().toString ();
+       et.setText (curr + in [pos]);
+       pos ++;
+   }
+   //for log
+   public void log (View view) {
+       in [pos] = "log";
+       TextView et = findViewById (R.id.editText);
+       String curr = et.getText ().toString ();
+       et.setText (curr + in [pos]);
+       pos ++;
+   }
+   //for sin
+   public void sin (View view) {
+       in [pos] = "sin";
+       TextView et = findViewById (R.id.editText);
+       String curr = et.getText ().toString ();
+       et.setText (curr + in [pos]);
+       pos ++;
+   }
+   //for cos
+   public void cos (View view) {
+       in [pos] = "cos";
+       TextView et = findViewById (R.id.editText);
+       String curr = et.getText ().toString ();
+       et.setText (curr + in [pos]);
+       pos ++;
+   }
+   //for tan
+   public void tan (View view) {
+       in [pos] = "tan";
+       TextView et = findViewById (R.id.editText);
+       String curr = et.getText ().toString ();
+       et.setText (curr + in [pos]);
+       pos ++;
+   }
+   public void equal (View view) {
+       while (pos != 1) {
+           while (div) {
+               findDiv ();
+           }
+           while (mul) {
+               findMul ();
+           }
+           while (add) {
+               findAdd ();
+           }
+           while (sub) {
+               findSub ();
+           }
+       }
+   }
+   public void findSin () {
+       for (int i = 0; i < pos; i ++) {
+           if (in [i] == "sin") {
+               toSin (i);
+               add = true;
+           }
+           else
+               add = false;
+       }
+   }
+   public void toSin (int i) {
+       double b = Double.parseDouble (in [i+1]);
+       double c = Math.sin (b);
+       fallBack (i, c, 1);
+   }
+   public void findCos () {
+       for (int i = 0; i < pos; i ++) {
+           if (in [i] == "cos") {
+               toCos (i);
+               add = true;
+           }
+           else
+               add = false;
+       }
+   }
+   public void toCos (int i) {
+       double b = Double.parseDouble (in [i+1]);
+       double c = Math.cos (b);
+       fallBack (i, c, 1);
+   }
+   public void findTan () {
+       for (int i = 0; i < pos; i ++) {
+           if (in [i] == "tan") {
+               toTan (i);
+               add = true;
+           }
+           else
+               add = false;
+       }
+   }
+   public void toTan (int i) {
+       double b = Double.parseDouble (in [i+1]);
+       double c = Math.tan (b);
+       fallBack (i, c, 1);
+   }
+   public void findLog () {
+       for (int i = 0; i < pos; i ++) {
+           if (in [i] == "log") {
+               toLog (i);
+               add = true;
+           }
+           else
+               add = false;
+       }
+   }
+   public void toLog (int i) {
+       double b = Double.parseDouble (in [i+1]);
+       double c = Math.log (b);
+       fallBack (i, c, 1);
+   }
+   public void findAdd () {
+       for (int i = 0; i < pos; i ++) {
+           if (in [i] == "+") {
+               toAdd (i);
+               add = true;
+           }
+           else
+               add = false;
+       }
+   }
+   public void toAdd (int i) {
+       double a = Double.parseDouble (in [i-1]);
+       double b = Double.parseDouble (in [i+1]);
+       double c = a + b;
+       fallBack (i, c, 2);
+   }
+   public void findSub () {
+       for (int i = 0; i < pos; i ++) {
+           if (in [i] == "-") {
+               toSub (i);
+               sub = true;
+           }
+           else
+               sub = false;
+       }
+   }
+   public void toSub (int i) {
+       double a = Double.parseDouble (in [i-1]);
+       double b = Double.parseDouble (in [i+1]);
+       double c = a - b;
+       fallBack (i, c, 2);
+   }
+   public void findMul () {
+       for (int i = 0; i < pos; i ++) {
+           if (in [i] == "*") {
+               toMul (i);
+               mul = true;
+           }
+           else
+               mul = false;
+       }
+   }
+   public void toMul (int i) {
+       double a = Double.parseDouble (in [i-1]);
+       double b = Double.parseDouble (in [i+1]);
+       double c = a * b;
+       fallBack (i, c, 2);
+   }
+   public void findDiv () {
+       for (int i = 0; i < pos; i ++) {
+           if (in [i] == "/") {
+               toDiv (i);
+               div = true;
+           }
+           else
+               div = false;
+       }
+   }
+   public void toDiv (int i) {
+       double a = Double.parseDouble (in [i-1]);
+       double b = Double.parseDouble (in [i+1]);
+       double c = a / b;
+       fallBack (i, c, 2);
+   }
+   public void fallBack (int i, double c, int n) {
+       if (n == 2) {
+           in [i-1] = Double.toString (c);
+           for (int j = i; j < pos - 2; j ++){
+               in [i] = in [i+2];
+           }
+           pos = pos - 2;
+           String curr = new String ();
+           for (int k = 0 ; k < pos; k ++) {
+               curr += in [k];
+           }
+           TextView et = findViewById (R.id.editText);
+           et.setText (curr);
+       }
+       else {
+           in [i] = Double.toString (c);
+           for (int j = i; j < pos - 1; j ++){
+               in [i] = in [i+1];
+           }
+           pos = pos - 1;
+           String curr = new String ();
+           for (int k = 0 ; k < pos; k ++) {
+               curr += in [k];
+           }
+           TextView et = findViewById (R.id.editText);
+           et.setText (curr);
+       }
+   }
+}
